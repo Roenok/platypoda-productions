@@ -1,0 +1,216 @@
+@import "_reset.less";
+@import "_variables.less";
+
+body {
+    color: @theme-text;
+    font-family: 'Lato', sans-serif;
+    padding-top: @nav-height;
+    text-align: center;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'BebasNeue', sans-serif;
+}
+h2{
+    font-size: 250%;
+    margin: 20px 0;
+}
+h3{
+    font-size: 250%;
+    margin-bottom: 15px;
+}
+p {
+  font-size: 1.2em;
+  line-height: 1.4em;
+}
+p.left-align{
+  text-align: left;
+}
+a{
+  color: @theme-link;
+}
+small{
+  font-size:0.8em;
+}
+nav, section{
+    margin: 0 auto;
+}
+section.inpage{
+  padding: @padding @padding/2;
+  overflow: hidden;
+  max-width: 1200px;
+}
+button{
+  padding: @padding/2 @padding;
+  margin-top: @padding;
+  font-size: 150%;
+  color: @theme-text;
+  background-color: lighten(@theme-accent-light, 15%);
+  border: none;
+  &:hover, :focus{
+    background-color: @theme-accent-light
+  }
+}
+
+a#skiptocontent {
+  padding:@padding/4;
+  position: absolute;
+  top:-40px;
+  left:0px;
+  color:white;
+  border-right:1px solid white;
+  border-bottom:1px solid white;
+  border-bottom-right-radius:8px;
+  background:transparent;
+  -webkit-transition: top 1s ease-out, background 1s linear;
+  transition: top 1s ease-out, background 1s linear;
+  z-index: 100;
+  &:focus {
+    position:absolute;
+    left:0px;
+    top:0px;
+    background:@theme-text;
+    outline:0;
+    -webkit-transition: top .1s ease-in, background .5s linear;
+    transition: top .1s ease-in, background .5s linear;
+  }
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(250, 250, 250, 0.8);
+  border-bottom: 2px solid @theme-primary-light;
+  height: @nav-height;
+  width: 100%;
+  ul {
+  	float: right;
+  }
+  li {
+    float: left;
+    width: auto;
+    a {
+      padding: (@nav-height - @nav-text)/2 10px;
+      display: block;
+      text-decoration: none;
+      font-size: @nav-text;
+      color: @theme-text;
+      &:hover, &:focus{
+        background: @theme-accent-light;
+      }
+    }
+  }
+}
+
+#brand {
+  text-indent: -9000px;
+  background: url(../images/platypoda-logo.svg) no-repeat top left;
+  background-size: @nav-height*1.5;
+  height: @nav-height;
+  width: @nav-height*1.5;
+  float: left;
+  margin: 10px;
+}
+#hero {
+  background: @theme-text url(../images/piano.png) no-repeat top left;
+	color: #fafafa;
+	background-size: cover;
+	padding: @padding 0;
+  h2 {
+      font-size: 400%;
+      margin: 10px;
+  }
+  span.subhead {
+      padding: @padding/2 @padding;
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 150%;
+  }
+}
+
+.column {
+    float: left;
+    width: 30.333333%;
+    padding: 1.5%;
+    img {
+        width: 60%;
+        max-width:60%;
+        margin-bottom: @padding;
+    }
+}
+#social {
+    background: @theme-text;
+    color: #fafafa;
+    padding-bottom: @padding;
+    overflow: hidden;
+    float: left;
+    width: 100%;
+    position: relative;
+    ul {
+        clear:left;
+        float:left;
+        list-style:none;
+        margin:0;
+        padding:0;
+        position:relative;
+        left:50%;
+    }
+    li {
+    	display:block;
+        float:left;
+        list-style:none;
+        margin:0;
+        padding:0;
+        position:relative;
+        right:50%;
+    }
+    ul li img  {
+        margin: 20px;
+    }
+}
+footer{
+  clear: both;
+}
+
+@media only screen and (max-width: 640px){
+  .column {
+      float: none;
+      width: 100%;
+      padding: 0px;
+      margin: 0 0 40px 0;
+  }
+}
+@media only screen and (max-width: 450px){
+  body{
+    padding-top: (@nav-height*@navmultiplier-medium);
+  }
+  nav {
+    height: (@nav-height*@navmultiplier-medium);
+    li a {
+      padding: (@nav-height - @nav-text)*@navmultiplier-medium/2 10px;
+      font-size: @nav-text*@navmultiplier-medium;
+    }
+  }
+  #brand{
+    background-size: @nav-height*@navmultiplier-medium*1.5;
+    height: @nav-height*@navmultiplier-medium;
+    width: @nav-height*@navmultiplier-medium*1.5;
+  }
+}
+@media only screen and (max-width: 360px){
+  body{
+    padding-top: (@nav-height*@navmultiplier-small);
+  }
+  nav {
+    height: (@nav-height*@navmultiplier-small);
+    li a {
+      padding: (@nav-height - @nav-text)*@navmultiplier-small/2 10px;
+      font-size: @nav-text*@navmultiplier-small;
+    }
+  }
+  #brand{
+    background-size: @nav-height*@navmultiplier-small*1.5;
+    height: @nav-height*@navmultiplier-small;
+    width: @nav-height*@navmultiplier-small*1.5;
+  }
+}
